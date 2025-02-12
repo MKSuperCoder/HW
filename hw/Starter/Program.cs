@@ -1,3 +1,6 @@
+using System;
+
+//Part 3 Guided Project
 // the ourAnimals array will store the following: 
 string animalSpecies = "";
 string animalID = "";
