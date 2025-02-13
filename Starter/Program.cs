@@ -316,6 +316,8 @@ do
 
                         }
                     } while (validEntry == false);
+                    Console.WriteLine("\n\rAge and physical description fields are complete for all of our friends. \n\rPress the Enter key to continue");
+                    readResult = Console.ReadLine();
             break;
 
         case "4":
