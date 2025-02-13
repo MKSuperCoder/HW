@@ -60,7 +60,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "";
             animalPersonalityDescription = "";
             animalNickname = "";
-
+            
             break;
 
         default:
@@ -287,9 +287,35 @@ do
 
         case "3":
             // Ensure animal ages and physical descriptions are complete
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
-            Console.WriteLine("Press the Enter key to continue.");
-            readResult = Console.ReadLine();
+            do 
+            {
+                Console.WriteLine("Enter an age for ID #: c4");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                    {
+                        animalAge = readResult;
+                        validEntry = int.TryParse(animalAge, out petAge);
+                    }
+                    
+            } while (validEntry = false);
+            do
+                    {
+                        Console.WriteLine("Enter a physical description for ID #: c4 (size, color, breed, gender, weight, housebroken)");
+                        readResult = Console.ReadLine();
+                        if (readResult != null)
+                        {
+                            animalPhysicalDescription = readResult.ToLower();
+                            if (animalPhysicalDescription == "")
+                            {
+                                validEntry = false;
+                            }
+                            else
+                            {
+                                validEntry = true;
+                            }
+
+                        }
+                    } while (validEntry == false);
             break;
 
         case "4":
