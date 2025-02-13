@@ -297,7 +297,7 @@ do
                         validEntry = int.TryParse(animalAge, out petAge);
                     }
                     
-            } while (validEntry = false);
+            } while (validEntry == false);
             do
                     {
                         Console.WriteLine("Enter a physical description for ID #: c4 (size, color, breed, gender, weight, housebroken)");
@@ -322,7 +322,42 @@ do
 
         case "4":
             // Ensure animal nicknames and personality descriptions are complete
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            do 
+            {
+                Console.WriteLine("Enter a nickname for ID #: c4");
+                readResult = Console.ReadLine();
+                    if (readResult != null)
+                    {
+                        animalNickname = readResult;
+                        if (animalNickname == "")
+                        {
+                            validEntry = false;
+                        }
+                        else
+                        {
+                            validEntry = true;
+                        }
+
+                    }
+            } while (validEntry == false);
+             do
+                {      
+                    Console.WriteLine("Enter a personality description for ID #: c4 (likes or dislikes, tricks, energy level)");
+                    readResult = Console.ReadLine();
+                    if (readResult != null)
+                    {
+                        animalPersonalityDescription = readResult.ToLower();
+                        if (animalPersonalityDescription == "")
+                        {
+                            validEntry = false;
+                        }
+                        else
+                        {
+                            validEntry = true;
+                        }
+                    }
+                } while (validEntry == false);
+            Console.WriteLine("Nickname and personality description fields are complete for all of our friends. ");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
