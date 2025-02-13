@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-// the ourAnimals array will store the following: ss
+// the ourAnimals array will store the following: ss33
 string animalSpecies = "";
 string animalID = "";
 string animalAge = "";
