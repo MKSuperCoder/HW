@@ -28,13 +28,25 @@ int food = 0;
 InitializeGame();
 while (!shouldExit) 
 {
-    Move();
+    if (CheckPlayer1())
+    {
+        FreezePlayer();
+    }
+    if (!CheckPlayer2())
+    {
+        Move();
+    }
+    else
+    {
+        Move(3);
+    }
     TerminateGame();
     if (ConsumeFood())
     {
         ChangePlayer();
         ShowFood();
     }
+    
 }
 
 // Returns true if the Terminal was resized 
@@ -74,7 +86,7 @@ void FreezePlayer()
 }
 
 // Reads directional input from the Console and moves the player
-void Move() 
+void Move(int speed = 1) 
 {
     int lastX = playerX;
     int lastY = playerY;
@@ -82,28 +94,28 @@ void Move()
     switch (Console.ReadKey(true).Key) 
     {
         case ConsoleKey.UpArrow:
-            playerY--; 
+            playerY-= speed; 
             break;
         case ConsoleKey.W:
-            playerY--;
+            playerY-= speed;
             break;
 		case ConsoleKey.DownArrow: 
-            playerY++; 
+            playerY+= speed; 
             break;
         case ConsoleKey.S:
-            playerY++;
+            playerY+= speed;
             break;
 		case ConsoleKey.LeftArrow:  
-            playerX--; 
+            playerX-= speed; 
             break;
         case ConsoleKey.A:
-            playerX--;
+            playerX-= speed;
             break;
 		case ConsoleKey.RightArrow: 
-            playerX++; 
+            playerX+= speed; 
             break;
         case ConsoleKey.D:
-            playerX++;
+            playerX+= speed;
             break;
 		case ConsoleKey.Escape:     
             shouldExit = true; 
@@ -150,6 +162,29 @@ void TerminateGame()
 bool ConsumeFood()
 {
     if (playerX == foodX && playerY == foodY)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+bool CheckPlayer1()
+{
+    if (player == states[2])
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+   
+}
+bool CheckPlayer2()
+{
+    if (player == states[1])
     {
         return true;
     }
