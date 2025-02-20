@@ -20,7 +20,29 @@ string[] pettingZoo =
     - Print the animal groups */
 
 #endregion
-//RandomizeAnime();
+RandomizeAnimals();
 //string[,] group = AssignGroup();
 Console.WriteLine("School A");
 //PrintGroup(group)
+
+void RandomizeAnimals()
+{
+    Random random = new Random();
+
+    for (int i = 0; i < pettingZoo.Length; i++) 
+    {
+        int r = random.Next(i, pettingZoo.Length);
+
+        string temp = pettingZoo[i];
+        pettingZoo[i] = pettingZoo[r];
+        pettingZoo[r] = temp;
+    }
+}
+
+#region Test RandomizeAnimals() method
+/*foreach (string animal in pettingZoo)
+{
+    Console.WriteLine(animal);
+} */
+#endregion
+
