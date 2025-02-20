@@ -30,6 +30,11 @@ while (!shouldExit)
 {
     Move();
     TerminateGame();
+    if (ConsumeFood())
+    {
+        ChangePlayer();
+        ShowFood();
+    }
 }
 
 // Returns true if the Terminal was resized 
@@ -104,6 +109,7 @@ void Move()
             shouldExit = true; 
             break;
         default:
+            Console.Clear();
             shouldExit = true;
             break;
     }
@@ -139,5 +145,16 @@ void TerminateGame()
         Console.Clear();
         Console.WriteLine("Console was resized. Program exiting");
         shouldExit = true;
+    }
+}
+bool ConsumeFood()
+{
+    if (playerX == foodX && playerY == foodY)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
     }
 }
